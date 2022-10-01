@@ -3,7 +3,7 @@
 
 FROM node:16.17.0 AS base
 WORKDIR /frontend
-COPY package.json /frontend
+COPY package.json ./
 RUN rm -rf node_modules
 RUN npm config set user 0
 RUN npm config set unsafe-perm true
@@ -11,4 +11,4 @@ RUN npm install --legacy-peer-deps
 
 # grant access
 RUN mkdir node_modules/.cache && chmod -R 777 node_modules/.cache
-COPY . /frontend
+COPY . .
