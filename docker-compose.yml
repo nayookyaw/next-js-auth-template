@@ -1,0 +1,18 @@
+#   Nay Oo Kyaw
+#   nayookyaw.nok@gmail.com
+
+version: '3.9'
+services:
+  frontend:
+    container_name: "pic-pac-frontend"
+    image: pic-pac-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: "no"
+    command: npm run dev
+    ports:
+      - 3000:3000
+    volumes:
+      - "./:/frontend"
+      - "/frontend/node_modules"
