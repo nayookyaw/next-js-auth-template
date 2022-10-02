@@ -1,12 +1,12 @@
 # React Typescript Auth
 
 # pre-requirements
- - docker
- - docker-compose
+ - nodejs
 
 # run
-    $ docker-compose build
-    $ docker-compose up
+Go to project folder <br>
+    $ npm install
+    $ npm start
 
 # see result
 http://localhost:3000

@@ -2,16 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import TodoProvider from './contexts/todoContext';
-import AddTodo from './components/AddTodo';
+import UserAuthProvider from './contexts/UserAuthContext';
+import Login from './components/Login/Login';
 
 function App() {
   return (
     <>
-      <TodoProvider>
-        <h1>Todo lists</h1>
-        <AddTodo/>
-      </TodoProvider>
+      <UserAuthProvider>
+        <h1>App page</h1>
+        <Login/>
+      </UserAuthProvider>
     </>
   );
 }

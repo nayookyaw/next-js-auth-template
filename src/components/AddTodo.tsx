@@ -3,10 +3,11 @@ import {TodoContext} from '../contexts/todoContext';
 import {TodoContextType, ITodo} from '../types/todo';
 
 const AddTodo : FC = () => {
-    const {saveTodo} = useContext(TodoContext) as TodoContextType;
+    const {todos, saveTodo} = useContext(TodoContext) as TodoContextType;
 
     useEffect(() => {
         console.log ("haha working now");
+        console.log (todos);
     }, []);
 
     return (
