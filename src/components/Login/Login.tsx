@@ -1,17 +1,24 @@
 import {FC, useContext, useEffect} from 'react';
 import {UserAuthContext} from '../../contexts/UserAuthContext';
-import {UserAuthType} from '../../types/UserAuth';
+import {UserAuthType, UserInfo} from '../../types/UserAuth';
 
 const Login : FC = () => {
-    const {userInfo} = useContext(UserAuthContext) as UserAuthType;
+    const {userInfo, saveUserInfo, getUserInfo} = useContext(UserAuthContext) as UserAuthType;
 
     useEffect(() => {
         console.log (userInfo);
-    }, []);
+    });
+
+    const loginHandle = () => {
+        let newUserInfo : UserInfo = userInfo;
+        newUserInfo.token = "fdad543443";
+
+        saveUserInfo(newUserInfo);
+    }
 
     return (
         <>
-            <div>Login</div>
+            <button onClick={loginHandle}>Login</button>
         </>
     )
     

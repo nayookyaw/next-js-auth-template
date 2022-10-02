@@ -1,23 +1,26 @@
-import {FC, useContext, useEffect} from 'react';
+import {FC, useContext, useEffect, useState} from 'react';
 
 import {UserAuthContext} from '../contexts/UserAuthContext';
 import Login from '../components/Login/Login';
-import { UserAuthType } from '../types/UserAuth';
+import { UserAuthType, UserInfo } from '../types/UserAuth';
 
 const AppContainer : FC = () => {
-    const {userInfo} = useContext(UserAuthContext) as UserAuthType;
+    const {userInfo, getUserInfo} = useContext(UserAuthContext) as UserAuthType;
 
     useEffect(() => {
-        console.log ("app container");
         console.log (userInfo);
-    }, []);
+    });
 
     return (
         <>
             <h1>App Container</h1>
-            <button>Login</button>
-
-            <Login/>
+            {
+                (userInfo && userInfo.token ? 
+                    <div>Logged in</div>
+                :
+                    <Login/>
+                )
+            }
         </>            
     );
 }
